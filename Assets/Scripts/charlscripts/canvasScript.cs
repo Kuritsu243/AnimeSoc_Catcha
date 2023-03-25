@@ -18,7 +18,18 @@ public class canvasScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI catVariantFourText;
     [SerializeField] private TextMeshProUGUI catVariantFiveText;
     [SerializeField] private TextMeshProUGUI totalCatsText;
-
+    [Header("New Cat Menu")]
+    [SerializeField] private GameObject showNewCatMenu;
+    [SerializeField] private TextMeshProUGUI newCatNameText;
+    [SerializeField] private TextMeshProUGUI newCatTypeText;
+    [SerializeField] private TextMeshProUGUI newCatTotalText;
+    [SerializeField] private float timeToShowUI;
+    
+    
+    
+    
+    
+    
     private GameObject _player;
     private player _playerScript;
     private bool _isShowingCatCountMenu;
@@ -36,16 +47,26 @@ public class canvasScript : MonoBehaviour
         _playerScript = _player.GetComponent<player>();
         showCatCountBtn.onClick.AddListener(ToggleCatCount); // binding done in script instead of in inspector
         showCatCountMenu.SetActive(false); // disable the UI 
-        
+        showNewCatMenu.SetActive(false);
         
         // TEMP
         addCatsBtn.onClick.AddListener(_playerScript.AddNewCat);
     }
 
-    // Update is called once per frame
-    private void Update()
+    public void ToggleNewCatUI(cats.CatType newCatType, string newCatName)
     {
-        
+        newCatNameText.text = "Cat Name: " + newCatName;
+        newCatTypeText.text = "Cat Type: " + newCatType;
+        GetCatCount();
+        newCatTotalText.text = "Total Cats: " + totalCatsText.text;
+        StartCoroutine(ToggleUI(timeToShowUI, showNewCatMenu));
+    }
+
+    private static IEnumerator ToggleUI(float duration, GameObject uiObject)
+    {
+        uiObject.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        uiObject.SetActive(false);
     }
 
 

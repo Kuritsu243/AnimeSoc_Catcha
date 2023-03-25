@@ -7,22 +7,25 @@ public class catsController : MonoBehaviour
 {
     [SerializeField] private List<cats> catTypes; // list of all the types
     [SerializeField] private cats.CatType catVariant; // the current type of cat assigned to this
-
+    [SerializeField] private string catName;
+    
 
     public cats.CatType CatVariant
     {
         get => catVariant;
         set => catVariant = value;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public string CatName
     {
-        
+        get => catName;
+        set => catName = value;
+    }
+    // Start is called before the first frame update
+
+    public void Initialize(cats.CatType newCatType, string newCatName)
+    {
+        catVariant = newCatType;
+        catName = newCatName;
     }
 }
