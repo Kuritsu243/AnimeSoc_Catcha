@@ -10,11 +10,17 @@ public class canvasScript : MonoBehaviour
 {
     [Header("Cat Count Menu")] // add more variant texts later
     [SerializeField] private Button showCatCountBtn;
+    [SerializeField] private Button addCatsBtn; // THIS IS TEMPORARY FOR TESTING
     [SerializeField] private GameObject showCatCountMenu;
     [SerializeField] private TextMeshProUGUI catVariantOneText;
+    [SerializeField] private TextMeshProUGUI catVariantTwoText;
+    [SerializeField] private TextMeshProUGUI catVariantThreeText;
+    [SerializeField] private TextMeshProUGUI catVariantFourText;
+    [SerializeField] private TextMeshProUGUI catVariantFiveText;
     [SerializeField] private TextMeshProUGUI totalCatsText;
-    
-    
+
+    private GameObject _player;
+    private player _playerScript;
     private bool _isShowingCatCountMenu;
 
     // replace this var names later
@@ -25,8 +31,15 @@ public class canvasScript : MonoBehaviour
     private int _catType5;
     private void Start()
     {
+
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _playerScript = _player.GetComponent<player>();
         showCatCountBtn.onClick.AddListener(ToggleCatCount); // binding done in script instead of in inspector
         showCatCountMenu.SetActive(false); // disable the UI 
+        
+        
+        // TEMP
+        addCatsBtn.onClick.AddListener(_playerScript.AddNewCat);
     }
 
     // Update is called once per frame
@@ -72,8 +85,12 @@ public class canvasScript : MonoBehaviour
             }
         }
 
-        totalCatsText.text = (_catType1 + _catType2 + _catType3 + _catType4 + _catType5).ToString();
+        totalCatsText.text = "Total Cats: " + (_catType1 + _catType2 + _catType3 + _catType4 + _catType5);
         catVariantOneText.text = _catType1.ToString();
+        catVariantTwoText.text = _catType2.ToString();
+        catVariantThreeText.text = _catType3.ToString();
+        catVariantFourText.text = _catType4.ToString();
+        catVariantFiveText.text = _catType5.ToString();
 
     }
 
