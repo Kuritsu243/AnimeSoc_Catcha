@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public int mwep;
+    public TextMeshProUGUI MwepText;
+
+    public int FoodGot;
+
+    public void Update()
     {
-        
+        MwepText.text = mwep.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
