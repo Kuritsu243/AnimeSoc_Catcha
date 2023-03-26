@@ -1,0 +1,6 @@
+Fonts used:
+
+Game name - Berlin Sans FB Demi
+Buttons - Berlin Sans FB
+
+Suggestion: Increase font size for selected button, decrease when de-selected
