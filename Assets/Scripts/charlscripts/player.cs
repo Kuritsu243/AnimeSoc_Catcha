@@ -6,9 +6,10 @@ using Random = UnityEngine.Random;
 
 public class player : MonoBehaviour
 {
-    private canvasScript _canvasScript;
     [SerializeField] private GameObject emptyCatGo;
-
+    
+    
+    private canvasScript _canvasScript;
     private string[] _defaultCatNames = new string[]
     {
         "Amber", "Arthur", "Arya", "Atticus", "Aurora", "Ava", "Baby Girl", "Barney", "Basil", "Benji", "Billy",
@@ -28,18 +29,32 @@ public class player : MonoBehaviour
         "Tabitha", "Thunder", "Tilly", "Tink", "Tinkerbell", "Tiny", "Tony", "Toothless", "Trouble", "Vader", "Waffles",
         "Walter", "Whiskey", "Willie", "Wilson", "Xena", "Yoshi", "Yuki", "Zeke"
     };
-
     private int _countOfCatNames;
+    
+    public int Money { get; private set; } = 5;
+    public int Food { get; private set; } = 5;
+    
     // Start is called before the first frame update
     private void Start()
     {
         _canvasScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<canvasScript>();
         _countOfCatNames = _defaultCatNames.Length;
-        // this is to test the rng 
-        // for (var i = 0; i < 5; i++)
-        // {
-        //     Debug.Log(GenerateCatChoice());
-        // }
+    }
+
+    public void AddMoney(int amount)
+    {
+        Money += amount;
+    }
+
+    public void AddFood(int amount)
+    {
+        Food += amount;
+    }
+
+    public void ConsumeFood(int amount)
+    {
+        Food -= amount;
+        Debug.Log(Food);
     }
 
     

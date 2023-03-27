@@ -24,7 +24,9 @@ public class canvasScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI newCatTypeText;
     [SerializeField] private TextMeshProUGUI newCatTotalText;
     [SerializeField] private float timeToShowUI;
-    
+    [Header("Currency and Food")] 
+    [SerializeField] private TextMeshProUGUI currencyText;
+
     
     
     
@@ -67,6 +69,11 @@ public class canvasScript : MonoBehaviour
         uiObject.SetActive(true);
         yield return new WaitForSeconds(duration);
         uiObject.SetActive(false);
+    }
+
+    private void FixedUpdate()
+    {
+        currencyText.text = "Money: " + _playerScript.Money;
     }
 
 
