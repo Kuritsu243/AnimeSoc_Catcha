@@ -1346,3 +1346,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 43fcc7b1228a9f846bb6ddf67d383b16, type: 3}
   - {fileID: 21300000, guid: db84f3f6c367aa9419bcf765b7ac2227, type: 3}
   - {fileID: 21300000, guid: 849a35cb5186fc444b7bb8bb1a695ee3, type: 3}
+  catVar2Sprites:
+  - {fileID: 21300000, guid: e2db06db104995c4091aaa177e201d4d, type: 3}
+  - {fileID: 21300000, guid: 3ea336193fb69b849979be9e608b5dd3, type: 3}
+  - {fileID: 21300000, guid: 5ad788aab0778f4418a0b542bbdc3018, type: 3}
+  - {fileID: 21300000, guid: 05ada02f11dd72d4c9afe72dceb963bc, type: 3}
+  catVar3Sprites:
+  - {fileID: 21300000, guid: 8e3bcb23e1d0d6e43b8de81929d8fb2e, type: 3}
+  - {fileID: 21300000, guid: 3eb1c4143b3c59d4193a75e06bc0dbb0, type: 3}
+  - {fileID: 21300000, guid: 8c42d559359db52499b837085a89a5fa, type: 3}

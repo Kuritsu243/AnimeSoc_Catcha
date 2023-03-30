@@ -26,6 +26,8 @@ public class canvasScript : MonoBehaviour
     [SerializeField] private float timeToShowUI;
     [Header("Currency and Food")] 
     [SerializeField] private TextMeshProUGUI currencyText;
+    [SerializeField] private TextMeshProUGUI foodText;
+    
 
     
     
@@ -60,7 +62,7 @@ public class canvasScript : MonoBehaviour
         newCatNameText.text = "Cat Name: " + newCatName;
         newCatTypeText.text = "Cat Type: " + newCatType;
         GetCatCount();
-        newCatTotalText.text = "Total Cats: " + totalCatsText.text;
+        newCatTotalText.text = totalCatsText.text;
         StartCoroutine(ToggleUI(timeToShowUI, showNewCatMenu));
     }
 
@@ -74,6 +76,7 @@ public class canvasScript : MonoBehaviour
     private void FixedUpdate()
     {
         currencyText.text = "Money: " + _playerScript.Money;
+        foodText.text = "Food: " + _playerScript.Food;
     }
 
 

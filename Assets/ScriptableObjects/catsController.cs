@@ -16,6 +16,8 @@ public class catsController : MonoBehaviour
     [SerializeField] private Button feedBtn;
     [SerializeField] private Button playBtn;
     [SerializeField] private Sprite[] catVar1Sprites;
+    [SerializeField] private Sprite[] catVar2Sprites;
+    [SerializeField] private Sprite[] catVar3Sprites;
     
     
     
@@ -121,15 +123,21 @@ public class catsController : MonoBehaviour
         switch (catVariant)
         {
             case cats.CatType.Pallas:
-                var index = Random.Range(0, catVar1Sprites.Length - 1);
-                var newSprite = catVar1Sprites[index];
-                _spriteRenderer.sprite = newSprite;
+                var sprite1 = Random.Range(0, catVar1Sprites.Length - 1);
+                var newSprite1 = catVar1Sprites[sprite1];
+                _spriteRenderer.sprite = newSprite1;
                 break;
             case cats.CatType.Burger:
+                var sprite2 = Random.Range(0, catVar2Sprites.Length - 1);
+                var newSprite2 = catVar2Sprites[sprite2];
+                _spriteRenderer.sprite = newSprite2;
                 break;
             case cats.CatType.Slug:
                 break;
             case cats.CatType.Pickl:
+                var sprite3 = Random.Range(0, catVar3Sprites.Length - 1);
+                var newSprite3 = catVar3Sprites[sprite3];
+                _spriteRenderer.sprite = newSprite3;
                 break;
             case cats.CatType.Sus:
                 break;
@@ -143,8 +151,8 @@ public class catsController : MonoBehaviour
     private IEnumerator RandomizeMovement(float waitTime, float moveSpeed)
     {
         yield return new WaitForSecondsRealtime(waitTime);
-        var newPos = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        transform.position = Vector2.MoveTowards(transform.position, newPos, 2f);
+        var newPos = new Vector2(Random.Range(-6f, 6f), Random.Range(-3.5f, 3.5f));
+        transform.position = newPos;
         StartCoroutine(RandomizeMovement(waitTime, moveSpeed));
     }
 

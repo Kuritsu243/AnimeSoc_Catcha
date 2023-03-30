@@ -46,6 +46,11 @@ public class player : MonoBehaviour
         Money += amount;
     }
 
+    public void RemoveMoney(int amount)
+    {
+        Money -= amount;
+    }
+
     public void AddFood(int amount)
     {
         Food += amount;

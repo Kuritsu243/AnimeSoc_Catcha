@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    public Player PlayerScript;
+    public player PlayerScript;
 
     public GameObject ShopMenu;
 
@@ -10,6 +11,14 @@ public class Shop : MonoBehaviour
     public float timer;
 
     public bool ShopOpen;
+
+    private void Start()
+    {
+
+        PlayerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+        ShopMenu.SetActive(false);
+        ShopOpen = false;
+    }
 
     public void Update()
     {
@@ -44,11 +53,9 @@ public class Shop : MonoBehaviour
 
     public void BuyYummies()
     {
-        if(PlayerScript.mwep > 0)
-        {
-            PlayerScript.mwep--;
-            PlayerScript.FoodGot++;
-        }
+        if (PlayerScript.Money <= 0) return;
+        PlayerScript.RemoveMoney(1);
+        PlayerScript.AddFood(1);
     }
 
 }
